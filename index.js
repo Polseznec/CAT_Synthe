@@ -12,6 +12,10 @@ const sampleCatAsharp = new Audio("Samples/catAa.mp3");
 const sampleCatB = new Audio("Samples/catB.mp3");
 const sampleCatC2 = new Audio("Samples/catC2.mp3");
 
+const houseLoop = new Audio("SamplePrime/CatHouseLoop.mp3");
+const jazzyLoop = new Audio("SamplePrime/CatjazzyLoop.mp3");
+const WorldLoop = new Audio("SamplePrime/CatWorlLoop.mp3");
+
 
 const toucheC = document.getElementById("toucheC");
 const toucheCcharp = document.getElementById("toucheCcharp");
@@ -31,6 +35,7 @@ const toucheC2 = document.getElementById("toucheC2");
 toucheC.addEventListener("click", () => {
   sampleCatC.play();
   sampleCatC.currentTime = 0;
+
 });
 
 toucheCcharp.addEventListener("click", () => {
@@ -99,7 +104,20 @@ toucheC2.addEventListener("click", () => {
 // document.querySelectorAll(".touche blanche").forEach((press) => {
 //   press.onclick = () => press.classList.contains(".blancPress");
 // });
+const checkKey = (e) => {
+  let selector = "div[keycode='"+e.keyCode.toString()+"']"
+  let keyToPlay = document.querySelector(selector)
 
+  keyToPlay.click()
+}
+
+document.addEventListener("keyup", (e) => checkKey(e))
+
+
+
+function playHouse(){
+  houseLoop.play();
+}
 
 
 
